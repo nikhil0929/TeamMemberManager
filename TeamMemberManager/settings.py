@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Manager'
+    'Manager',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -48,7 +49,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'TeamMemberManager.urls'
 
@@ -75,14 +80,14 @@ WSGI_APPLICATION = 'TeamMemberManager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-password = input("Enter password for postgres: ")
+#password = input("Enter password for postgres: ")
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'member_db' ,
         'USER': 'postgres',
-        'PASSWORD': password,
+        'PASSWORD': 'Arnik0929!',
         'HOST': 'localhost',
         'PORT': '9876',
     }
