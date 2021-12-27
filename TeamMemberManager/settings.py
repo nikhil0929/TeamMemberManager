@@ -54,7 +54,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
-
+CSRF_COOKIE_SECURE = False
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
 ROOT_URLCONF = 'TeamMemberManager.urls'
 
 TEMPLATES = [
@@ -80,8 +81,7 @@ WSGI_APPLICATION = 'TeamMemberManager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-#password = input("Enter password for postgres: ")
-
+# Using the Postgres database engine for this project
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
