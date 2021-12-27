@@ -1,13 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import ListMembers from "./components/ListMembers";
+import Main from "./routes/Main"
+import React from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <ListMembers />
-    </div>
-  );
+    return (
+        <Main />
+    );
 }
 
 export default App;
