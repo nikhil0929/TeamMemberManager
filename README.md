@@ -28,7 +28,7 @@ python manage.py runserver
 This program uses port 8000 and is currently configured to listen at http://127.0.0.1:8000/
 
 ## Frontend client
-The client application is located in the ```Client Application``` folder
+The client application is located in the ```ClientApplication``` folder
 
 To start the front end client:
 ```
