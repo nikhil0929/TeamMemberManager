@@ -28,6 +28,13 @@ python manage.py runserver
 This program uses port 8000 and is currently configured to listen at http://127.0.0.1:8000/
 
 ## Frontend client
+Built using ReactJS and Material UI. Make sure you have the latest version of node and npm installed on your machine
+Once you have npm installed, change directory to where the client application is stored and install Material UI
+
+```
+cd ./TeamMemberManager/ClientApplication
+npm install @mui/material @emotion/react @emotion/styled
+```
 The client application is located in the ```ClientApplication``` folder
 
 To start the front end client:
