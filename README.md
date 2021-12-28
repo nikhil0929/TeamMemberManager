@@ -15,6 +15,8 @@ This is a full-stack application built using Django and Postgres, along with Rea
 This backend server is built using django along with postres database for data storage. Make sure you have django and postgres installed on your machine. 
 You must also configure django with the postgres db in the settings.py file.
 
+#### Configure Postgres Database with Django
+
 Currently, I have downloaded the postgres database to run on port 9876. To configure the postgres db settings for your own postgres installation, modify the ```settings.py``` file in the ```TeamMemberManagement``` subdirectory
 
 ```
@@ -34,7 +36,7 @@ DATABASES = {
 ```
 Once that is configured, you can continue with starting the application.
 
-To start the django server:
+#### To start the django server:
 
 First, download the zip file and move into the project root directory
 ```
