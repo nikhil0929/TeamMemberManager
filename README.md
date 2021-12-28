@@ -18,6 +18,7 @@ You must also configure django with the postgres db in the settings.py file.
 Currently, I have downloaded the postgres database to run on port 9876. To configure the postgres db settings for your own postgres installation, modify the ```settings.py``` file in the ```TeamMemberManagement``` subdirectory
 
 ```
+...
 # Using the Postgres database engine for this project
 DATABASES = {
     'default': {
@@ -29,6 +30,7 @@ DATABASES = {
         'PORT': '9876',
     }
 }
+...
 ```
 Once that is configured, you can continue with starting the application.
 
