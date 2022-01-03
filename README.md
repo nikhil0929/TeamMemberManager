@@ -64,7 +64,7 @@ Now your server should be running on port 8000 at address: http://127.0.0.1:8000
 Built using ReactJS and Material UI. Make sure you have the latest version of node and npm installed on your machine
 
 
-Once you have npm installed, change directory to where the client application is stored
+Once you have npm installed, change directory to where the client application is stored ```/instawork_team-member-manager-client```
 
 ```
 cd ./TeamMemberManager-main/instawork_team-member-manager-client
