@@ -67,21 +67,14 @@ python3 manage.py runserver
 Now your server should be running on port 8000 at address: http://127.0.0.1:8000/
 
 ## Frontend client
-Built using ReactJS and Material UI. Make sure you have the latest version of node.
+Built using ReactJS and Material UI.
+
+First, open a new terminal window. Now, make sure you are in the ```ClientApp/``` directory:
+```
+cd ClientApp/
+```
     
-To install the latest version of node, run:
-```
-curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
-```
-
-
-Once you have npm installed, change directory to where the client application is stored ```/instawork_team-member-manager-client```
-
-```
-cd ./TeamMemberManager-main/instawork_team-member-manager-client
-```
-
-Install npm:
+Install the latest version of npm:
 ```
 npm install
 ```
@@ -97,6 +90,8 @@ npm install @mui/material @emotion/react @emotion/styled
 ```
 
 The front-end server now should be running on port 3000 at address: http://localhost:3000/
+    
+Now you should be able to interact with the application. 
 
 
 ## How to use application:
