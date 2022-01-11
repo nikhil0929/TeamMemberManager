@@ -67,7 +67,7 @@ python3 manage.py runserver
 Now your server should be running on port 8000 at address: http://127.0.0.1:8000/
 
 ## Frontend client
-Built using ReactJS and Material UI.
+Built using ReactJS and Material UI. You must install ```npm``` which you can do by going to the npm website. 
 
 First, open a new terminal window. Now, make sure you are in the ```ClientApp/``` directory:
 ```
