@@ -48,31 +48,31 @@ cd ServerApp/
  python3 -m venv venv
  ```
 
-    Activate virtual enviornment:
-    ```
-    source venv/bin/activate
-    ```
+Activate virtual enviornment:
+```
+source venv/bin/activate
+```
     
-    This project uses ```Django```, ```Django-cors```, and ```psycopg2``` dependencies.
-    To install them, use:
-    ```
-    pip install Django==4.0.1 django-cors-headers psycopg2
-    ```
+This project uses ```Django```, ```Django-cors```, and ```psycopg2``` dependencies.
+To install them, use:
+```
+pip install Django==4.0.1 django-cors-headers psycopg2
+```
     
-    Once those have finished installing, you can run the django backend server using:
-    ```
-    python3 manage.py runserver
-    ```
+Once those have finished installing, you can run the django backend server using:
+```
+python3 manage.py runserver
+```
     
-    Now your server should be running on port 8000 at address: http://127.0.0.1:8000/
+Now your server should be running on port 8000 at address: http://127.0.0.1:8000/
 
 ## Frontend client
-    Built using ReactJS and Material UI. Make sure you have the latest version of node.
+Built using ReactJS and Material UI. Make sure you have the latest version of node.
     
-    To install the latest version of node, run:
-    ```
-    curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
-    ```
+To install the latest version of node, run:
+```
+curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
+```
 
 
 Once you have npm installed, change directory to where the client application is stored ```/instawork_team-member-manager-client```
