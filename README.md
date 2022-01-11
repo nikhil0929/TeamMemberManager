@@ -12,12 +12,13 @@ This is a full-stack application built using Django and Postgres, along with Rea
 
 ## Backend
 
-This backend server is built using django along with postres database for data storage. Make sure you have django and postgres installed on your machine. 
-You must also configure django with the postgres db in the settings.py file.
+This backend server is built using django along with postres database for data storage. To run the backend service, you must first install PostgresDB using either the installation wizard or using Homebrew.
 
-#### Configure Postgres Database with Django
+#### Install and Configure Postgres Database with Django
 
-Currently, I have downloaded the postgres database to run on port 9876. To configure the postgres db settings for your own postgres installation, modify the ```settings.py``` file in the ```TeamMemberManagement``` subdirectory
+To download Postgres, you can use the installation wizard located at https://www.postgresql.org/download/. Choose your operating system and then follow the installation instructions. **Please take note of the database name, username, password, and port you inputted when starting postgres**
+
+Currently, I have downloaded the postgres database to run on port 9876. To configure the postgres db settings for your own postgres installation, modify the ```settings.py``` file in the ```ServerApp/TeamMemberManagement``` subdirectory. Replace all the values in '<xxx>' with the values you inputted when creating your postgres instance.  
 
 ```
 ...
