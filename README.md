@@ -56,7 +56,7 @@ source venv/bin/activate
 This project uses ```Django```, ```Django-cors```, and ```psycopg2``` dependencies.
 To install them, use:
 ```
-pip install Django==4.0.1 django-cors-headers psycopg2
+pip install Django==4.0.1 django-cors-headers psycopg2-Binary
 ```
     
 Once those have finished installing, you can run the django backend server using:
