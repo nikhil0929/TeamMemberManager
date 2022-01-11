@@ -38,15 +38,15 @@ DATABASES = {
 Once that is configured, you can continue with starting the application.
 
 #### To start the django server:
-    If you haven't already, make sure you are in the ```ServerApp/``` directory:
-    ```
-    cd ServerApp/
-    ```
+If you haven't already, make sure you are in the ```ServerApp/``` directory:
+```
+cd ServerApp/
+```
     
-    Then, create your virtual enviornment:
-    ```
-    python3 -m venv venv
-    ```
+ Then, create your virtual enviornment:
+ ```
+ python3 -m venv venv
+ ```
 
     Activate virtual enviornment:
     ```
