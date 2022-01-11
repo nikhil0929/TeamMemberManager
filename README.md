@@ -38,31 +38,40 @@ DATABASES = {
 Once that is configured, you can continue with starting the application.
 
 #### To start the django server:
+    If you haven't already, make sure you are in the ```ServerApp/``` directory:
+    ```
+    cd ServerApp/
+    ```
+    Then, create your virtual enviornment:
+    ```
+    python3 -m venv venv
+    ```
 
-First, download the zip file and move into the project root directory
-```
-cd ~/TeamMemberManager-main
-```
-
-Then, create your virtual enviornment:
-```
-python3 -m venv venv
-```
-
-Activate virtual enviornment:
-```
-source venv/bin/activate
-```
-
-Run the django backend server:
-```
-python3 manage.py runserver
-```
-
-Now your server should be running on port 8000 at address: http://127.0.0.1:8000/
+    Activate virtual enviornment:
+    ```
+    source venv/bin/activate
+    ```
+    
+    This project uses ```Django```, ```Django-cors```, and ```psycopg2``` dependencies.
+    To install them, use:
+    ```
+    pip install Django==4.0.1 django-cors-headers psycopg2
+    ```
+    
+    Once those have finished installing, you can run the django backend server using:
+    ```
+    python3 manage.py runserver
+    ```
+    
+    Now your server should be running on port 8000 at address: http://127.0.0.1:8000/
 
 ## Frontend client
-Built using ReactJS and Material UI. Make sure you have the latest version of node and npm installed on your machine
+    Built using ReactJS and Material UI. Make sure you have the latest version of node.
+    
+    To install the latest version of node, run:
+    ```
+    curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
+    ```
 
 
 Once you have npm installed, change directory to where the client application is stored ```/instawork_team-member-manager-client```
