@@ -13,7 +13,7 @@ import {
     Typography
 } from "@mui/material";
 import Radio from '@mui/material/Radio';
-import {useLocation, useNavigate} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 
 export default function EditMember(props) {
 
@@ -23,9 +23,8 @@ export default function EditMember(props) {
     const EditMemberURL = "http://127.0.0.1:8000/manager/editMember/"
     const DeleteMemberURL = "http://127.0.0.1:8000/manager/deleteMember/"
     const [member, setMember] = useState(selectedMember)
-    const [isChecked, setIsChecked] = useState(true)
 
-    function HandleMemberRequest(requestType){
+    async function HandleMemberRequest(requestType){
         const formData = new FormData()
         for(let [key, value] of Object.entries(member)){
             formData.append(key, value)
@@ -36,14 +35,17 @@ export default function EditMember(props) {
             redirect: 'follow'
         }
 
-        fetch(requestType, requestOptions)
+        await fetch(requestType, requestOptions)
             .then(response => response.text())
             .then(status => {
                 status === 'SUCCESS' ? props.setSuccessStatus(true) : props.setFailureStatus(true)
             })
             .catch(error => console.log('error', error));
+    }
 
-        navigate(-1)
+    async function CompleteRequest(requestType) {
+        await HandleMemberRequest(requestType)
+        navigate("/")
     }
 
     const saveFieldInput = (event) => {
@@ -167,17 +169,17 @@ export default function EditMember(props) {
                             </FormControl>
                         </Grid>
                         <Grid item xs={6}>
-                            <Button
-                                variant="contained"
-                                onClick={() => HandleMemberRequest(EditMemberURL)}
-                            >
-                                Save
-                            </Button>
+                                <Button
+                                    variant="contained"
+                                    onClick={() => CompleteRequest(EditMemberURL)}
+                                >
+                                    Save
+                                </Button>
                         </Grid>
                         <Grid item xs={6}>
                             <Button variant="outlined"
                                     color="error"
-                                    onClick={() => HandleMemberRequest(DeleteMemberURL)}
+                                    onClick={() => CompleteRequest(DeleteMemberURL)}
                             >
                                 Delete
                             </Button>

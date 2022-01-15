@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import {useState} from "react";
-import {useNavigate} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import {
     Button,
     FormControl,
@@ -29,9 +29,9 @@ export default function AddMember(props) {
     const MemberListURL = "http://127.0.0.1:8000/manager/addMember/"
     const [member, setMember] = useState(newMember)
 
-    function CreateNewMember(){
+    async function CreateNewMember() {
         const formData = new FormData()
-        for(let [key, value] of Object.entries(member)){
+        for (let [key, value] of Object.entries(member)) {
             formData.append(key, value)
         }
         let requestOptions = {
@@ -47,7 +47,11 @@ export default function AddMember(props) {
             })
             .catch(error => console.log('error', error));
 
-        navigate(-1)
+    }
+
+    async function CompleteRequest() {
+        await CreateNewMember()
+        navigate("/")
     }
 
     const saveFieldInput = (event) => {
@@ -80,106 +84,108 @@ export default function AddMember(props) {
                 margin: 'auto'
             }}>
                 <FormControl>
-                <Grid container spacing={2}>
-                    <Grid item xs={12}>
-                        <Typography variant='h4' gutterBottom component='div'>Add a member</Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Typography variant='subtitle1' gutterBottom component='div'>Set email, location, and role</Typography>
-                        <Divider />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Typography
-                            variant='h6'
-                            gutterBottom
-                            component='div'
-                            style={{
-                                textAlign: "left",
-                                paddingLeft: 40
-                            }}
-                        >
-                            Info
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField required
-                                   id="outlined-basic"
-                                   label="First Name"
-                                   variant="outlined"
-                                   name="first_name"
-                                   value={member.first_name}
-                                   style = {{width: "100%"}}
-                                   onChange={saveFieldInput}/>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField required
-                                   id="outlined-basic"
-                                   label="Last Name"
-                                   variant="outlined"
-                                   name="last_name"
-                                   value={member.last_name}
-                                   style = {{width: "100%"}}
-                                   onChange={saveFieldInput}/>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField required
-                                   id="outlined-basic"
-                                   label="Email"
-                                   variant="outlined"
-                                   name="email"
-                                   value={member.email}
-                                   style = {{width: "100%"}}
-                                   onChange={saveFieldInput}/>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField
-                            id="outlined-basic"
-                            label="Phone Number"
-                            variant="outlined"
-                            name="phone_number"
-                            value={member.phone_number}
-                            style = {{width: "100%"}}
-                            onChange={saveFieldInput}/>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Typography
-                            variant='h6'
-                            gutterBottom
-                            component='div'
-                            style={{
-                                textAlign: "left",
-                                paddingLeft: 40
-                            }}
-                        >
-                            Role
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <FormControl component="fieldset">
-                            <RadioGroup
-                                aria-required
-                                aria-label="role"
-                                defaultValue="R"
-                                name="role"
-                                value={member.role}
-                                onChange={saveFieldInput}
+                    <Grid container spacing={2}>
+                        <Grid item xs={12}>
+                            <Typography variant='h4' gutterBottom component='div'>Add a member</Typography>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Typography variant='subtitle1' gutterBottom component='div'>Set email, location, and
+                                role</Typography>
+                            <Divider/>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Typography
+                                variant='h6'
+                                gutterBottom
+                                component='div'
+                                style={{
+                                    textAlign: "left",
+                                    paddingLeft: 40
+                                }}
                             >
-                                <FormControlLabel value="R" control={<Radio />} label="Regular - Can't delete members" />
-                                <Divider />
-                                <FormControlLabel value="A" control={<Radio />} label="Admin - Can delete members" />
-                                <Divider />
-                            </RadioGroup>
-                        </FormControl>
+                                Info
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField required
+                                       id="outlined-basic"
+                                       label="First Name"
+                                       variant="outlined"
+                                       name="first_name"
+                                       value={member.first_name}
+                                       style={{width: "100%"}}
+                                       onChange={saveFieldInput}/>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField required
+                                       id="outlined-basic"
+                                       label="Last Name"
+                                       variant="outlined"
+                                       name="last_name"
+                                       value={member.last_name}
+                                       style={{width: "100%"}}
+                                       onChange={saveFieldInput}/>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField required
+                                       id="outlined-basic"
+                                       label="Email"
+                                       variant="outlined"
+                                       name="email"
+                                       value={member.email}
+                                       style={{width: "100%"}}
+                                       onChange={saveFieldInput}/>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                id="outlined-basic"
+                                label="Phone Number"
+                                variant="outlined"
+                                name="phone_number"
+                                value={member.phone_number}
+                                style={{width: "100%"}}
+                                onChange={saveFieldInput}/>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Typography
+                                variant='h6'
+                                gutterBottom
+                                component='div'
+                                style={{
+                                    textAlign: "left",
+                                    paddingLeft: 40
+                                }}
+                            >
+                                Role
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <FormControl component="fieldset">
+                                <RadioGroup
+                                    aria-required
+                                    aria-label="role"
+                                    defaultValue="R"
+                                    name="role"
+                                    value={member.role}
+                                    onChange={saveFieldInput}
+                                >
+                                    <FormControlLabel value="R" control={<Radio/>}
+                                                      label="Regular - Can't delete members"/>
+                                    <Divider/>
+                                    <FormControlLabel value="A" control={<Radio/>} label="Admin - Can delete members"/>
+                                    <Divider/>
+                                </RadioGroup>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Button
+                                variant="contained"
+                                onClick={CompleteRequest}
+                            >
+                                Submit
+                            </Button>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12}>
-                        <Button
-                            variant="contained"
-                            onClick={CreateNewMember}
-                        >
-                            Submit
-                        </Button>
-                    </Grid>
-                </Grid>
                 </FormControl>
             </Box>
         </Paper>

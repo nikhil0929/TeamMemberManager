@@ -20,13 +20,14 @@ export default function ListMembers() {
     const [numMembers, setNumMembers] = useState(0)
 
 
-    function getMemberList(){
+    async function getMemberList(){
+        console.log('fetched data')
         let requestOptions = {
             method: 'GET',
             redirect: 'follow'
         }
 
-        fetch(MemberListURL, requestOptions)
+        await fetch(MemberListURL, requestOptions)
             .then(response => response.json())
             .then(function(result){
                 setMemberList(result["member_list"])
@@ -39,7 +40,7 @@ export default function ListMembers() {
     function generate(listOfMembers) {
         return listOfMembers.map(function(member, i) {
             let name = member["first_name"] + " " + member["last_name"];
-            if(member["role"] === 'A') name += " \(admin\)"
+            if(member["role"] === 'A') name += " (admin)"
             return (
                 <div>
                     <ListItem key={i} component={Link} to="/edit-member" state={member}>
