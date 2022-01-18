@@ -40,7 +40,7 @@ export default function AddMember(props) {
             redirect: 'follow'
         }
 
-        fetch(MemberListURL, requestOptions)
+        await fetch(MemberListURL, requestOptions)
             .then(response => response.text())
             .then(status => {
                 status === 'SUCCESS' ? props.setSuccessStatus(true) : props.setFailureStatus(true)

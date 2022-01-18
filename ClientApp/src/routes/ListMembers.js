@@ -20,23 +20,6 @@ export default function ListMembers() {
     const [numMembers, setNumMembers] = useState(0)
 
 
-    async function getMemberList(){
-        console.log('fetched data')
-        let requestOptions = {
-            method: 'GET',
-            redirect: 'follow'
-        }
-
-        await fetch(MemberListURL, requestOptions)
-            .then(response => response.json())
-            .then(function(result){
-                setMemberList(result["member_list"])
-                setNumMembers(result["num_members"])
-            })
-            .catch(error => console.log('error', error));
-    }
-
-
     function generate(listOfMembers) {
         return listOfMembers.map(function(member, i) {
             let name = member["first_name"] + " " + member["last_name"];
@@ -65,7 +48,25 @@ export default function ListMembers() {
         });
     }
 
-    useEffect(getMemberList, [])
+    useEffect(() => {
+        async function getMemberList(){
+            let requestOptions = {
+                method: 'GET',
+                redirect: 'follow'
+            }
+
+            await fetch(MemberListURL, requestOptions)
+                .then(response => response.json())
+                .then(function(result){
+                    console.log(result["num_members"])
+                    console.log(result["member_list"])
+                    setMemberList(result["member_list"])
+                    setNumMembers(result["num_members"])
+                })
+                .catch(error => console.log('error', error));
+        }
+        getMemberList()
+    }, [])
 
     return (
         <Paper
