@@ -2,7 +2,7 @@
 # Team Member Manager
 
 The Team Member Management application allows users to view, edit, add, and delete team members using a React.js frontend and store the team in a Postgres database using a Django backend. 
-## Purpose: 
+## Purpose 
 This application was written to learn about Django and make an interactive UI (mobile) using React.js
 
 ![alt text](https://github.com/nikhil0929/TeamMemberManager/blob/09d892f289ccfc0a29e124c36890db9d26625b33/pictures/ListMember.png?raw=true)
